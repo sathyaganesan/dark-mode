@@ -1,13 +1,7 @@
-import { useState } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
-export const useDarkMode = (key, initialvalue) => {
-    const [darkMode, setDarkMode] = useLocalStorage(key, initialvalue);
+export const useDarkMode = (initialvalue) => {
+    const [darkMode, setDarkMode] = useLocalStorage("toggleDarkMode", initialvalue);
    
-    const toggleMode = e => {
-        e.preventDefault();
-        setDarkMode(!darkMode);
-
-        return [darkMode, toggleMode];
-    }
+    return [darkMode, setDarkMode];
 }
